@@ -73,6 +73,13 @@ To test recommended to Run on VS2019. Open Solution, Select TT.Deliveries.CronJo
 Click Run.
 
 ### Notes
+* Using JWT bearer token authentication is probably the right way to go, but basic authentication demonstrates the concept due to time constraints
+
+* Test Credentials for basic authentication: 
+username : admin, password : admin
+username : customer, password : customer
+username : partner, password : partner
+
 * DB is SQLlite as lightweight for test, ideally will connect to some cloud DB. EFCore will provision and migrate db on dev environment at startup, this will also create the db if non-existent. Connectionstrings, secrets etc are provided in apseetings.Dev. In prod will ideally be passed from a KeyVault etc.
 
 * Can use a DbConnectionFactory to support databases of multiple Providers e.g. CosmosDB, and pass not only connection string but dataProvider name as argument.
@@ -90,9 +97,7 @@ Click Run.
 
 * logging logs to console only, can be modified to log to file or other sinks
 
-*  also possible for State Expiration job to expire delivery states via Delivery API rather than direct db access
-
-* Using JWT bearer token authentication is probably the right way to go, but basic authentication demonstrates the concept due to time constraints
+* Also possible for State Expiration job to expire delivery states via Delivery API rather than direct db access?
 
 * More Unit and Integration tests should definitely be written. Time contraints didnt permit this.
 
