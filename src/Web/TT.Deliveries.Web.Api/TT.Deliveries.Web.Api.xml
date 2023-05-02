@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TT.Deliveries.Web.Api</name>
+    </assembly>
+    <members>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.DeliveriesController.Get">
+            <summary>
+            Gets all Deliveries
+            </summary>
+            <returns>Returns a list of deliveries</returns>
+            <response code="200"> Successfully retrieved all deliveries</response>
+            <response code="204"> If there are no delivery items</response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to get all deliveries </response>
+            <response code="500"> If something has gone wrong while retrieving the list of deliveries </response>
+            <remarks>
+            Sample request:
+                GET /deliveries'
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.DeliveriesController.GetById(System.Guid)">
+            <summary>
+            Gets a Delivery by its Id
+            </summary>
+            <returns>Returns the delivery</returns>
+            <response code="200"> Successfully retrieves the delivery </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to get the delivery details </response>
+            <response code="404"> If there are no delivery with that Id</response>
+            <response code="500"> If something has gone wrong while retrieving the list of deliveries </response>
+            <remarks>
+            Sample request:
+                GET /deliveries/7432D362-15B3-4CC6-BAB6-F417A5CD5265
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.DeliveriesController.Post(TT.Deliveries.Web.Api.Models.CreateDelivery)">
+            <summary>
+            Creates a new Delivery
+            </summary>
+            <returns>Returns the delivery created</returns>
+            <response code="201"> Successfully created the delivery </response>
+            <response code="400"> If the request is incorrect e.g. delivery is null or validation issues </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to create a delivery </response>
+            <response code="500"> If something has gone wrong while retrieving the list of deliveries </response>
+            <remarks>
+            Sample request:
+                POST /deliveries
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.DeliveriesController.PutById(System.Guid,TT.Deliveries.Web.Api.Models.UpdateDelivery)">
+            <summary>
+            Updates a Delivery Specified with an Id
+            </summary>
+            <returns>Returns the updated delivery</returns>
+            <response code="200"> Successfully updated the delivery </response>
+            <response code="400"> If the request is incorrect e.g. delivery is null or validation issues </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to update a delivery </response>
+            <response code="404"> If there are no delivery with that Id</response>
+            <response code="500"> If something has gone wrong while updating the list of deliveries </response>
+            <remarks>
+            Sample request:
+                PUT /deliveries/7432D362-15B3-4CC6-BAB6-F417A5CD5265
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.DeliveriesController.Put(System.Collections.Generic.List{TT.Deliveries.Web.Api.Models.BulkDelivery})">
+            <summary>
+            Updates a List of Deliveries
+            </summary>
+            <returns>Returns the updated deliveries</returns>
+            <response code="200"> Successfully updated some or all the deliveries </response>
+            <response code="204"> Successful but no deliveries to update </response>
+            <response code="400"> If the request is incorrect e.g. delivery is null or validation issues </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to update a delivery </response>
+            <response code="404"> If there are no delivery with that Id</response>
+            <response code="500"> If something has gone wrong while updating the list of deliveries </response>
+            <remarks>
+            Sample request:
+                PUT /deliveries
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.DeliveriesController.DeleteById(System.Guid)">
+            <summary>
+            Deletes a Delivery by its Id
+            </summary>
+            <returns></returns>
+            <response code="204"> Successfully deleted the delivery. No content is returned </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to delete the delivery</response>
+            <response code="404"> If there are no delivery with that Id</response>
+            <response code="500"> If something has gone wrong while deleting the delivery </response>
+            <remarks>
+            Sample request:
+                DELETE /deliveries/7432D362-15B3-4CC6-BAB6-F417A5CD5265
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.DeliveriesController.Delete">
+            <summary>
+            Deletes all deliveries
+            </summary>
+            <returns></returns>
+            <response code="204"> Successfully deleted all deliveries. No content is returned </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to delete all deliveries</response>
+            <response code="500"> If something has gone wrong while deleting the deliveries </response>
+            <remarks>
+            Sample request:
+                DELETE /deliveries/7432D362-15B3-4CC6-BAB6-F417A5CD5265
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.StateController.Approve(System.Guid)">
+            <summary>
+            Approves a newly Created Delivery
+            </summary>
+            <returns></returns>
+            <response code="200"> Successfully approved the delivery </response>
+            <response code="400"> If the request is incorrect e.g. id is wrong, bad state transition, or delivery has expired </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to approve a delivery </response>
+            <response code="500"> If something has gone wrong while approving the delivery </response>
+            <remarks>
+            Sample request:
+                PUT /deliveries/state/7432D362-15B3-4CC6-BAB6-F417A5CD5265/Approve
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.StateController.Complete(System.Guid)">
+            <summary>
+            Completes an Approved Delivery
+            </summary>
+            <returns></returns>
+            <response code="200"> Successfully completed the delivery </response>
+            <response code="400"> If the request is incorrect e.g. id is wrong, bad state transition, or delivery has expired </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to complete a delivery </response>
+            <response code="500"> If something has gone wrong while completing the delivery </response>
+            <remarks>
+            Sample request:
+                PUT /deliveries/state/7432D362-15B3-4CC6-BAB6-F417A5CD5265/Complete
+            </remarks>
+        </member>
+        <member name="M:TT.Deliveries.Web.Api.Controllers.StateController.Cancel(System.Guid)">
+            <summary>
+            Cancels a pending Delivery ((in state created or approved)
+            </summary>
+            <returns></returns>
+            <response code="200"> Successfully cancelled the delivery </response>
+            <response code="400"> If the request is incorrect e.g. id is wrong, bad state transition, or delivery has expired </response>
+            <response code="401"> If the user is not authenticated </response>
+            <response code="403"> If the user lacks permission to cancel a delivery </response>
+            <response code="500"> If something has gone wrong while cancelling the delivery </response>
+            <remarks>
+            Sample request:
+                PUT /deliveries/state/7432D362-15B3-4CC6-BAB6-F417A5CD5265/Cancel
+            </remarks>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.AccessWindow.StartTime">
+            <summary>
+            Delivery Start Time in UTC
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.AccessWindow.EndTime">
+            <summary>
+            Delivery End Time in UTC
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Delivery.State">
+            <summary>
+            Delivery State
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Delivery.AccessWindow">
+            <summary>
+            Delivery Valid Window
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Delivery.Recipient">
+            <summary>
+            Delivery Recipient
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Delivery.Order">
+            <summary>
+            Delivery Order
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Order.OrderNumber">
+            <summary>
+            Order Number
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Order.Sender">
+            <summary>
+            Sending Partner Name
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Recipient.Name">
+            <summary>
+            Recipient Full Name
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Recipient.Address">
+            <summary>
+            Recipient's Address
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Recipient.Email">
+            <summary>
+            Recipient's Email Address
+            </summary>
+        </member>
+        <member name="P:TT.Deliveries.Web.Api.Models.Recipient.PhoneNumber">
+            <summary>
+            Recipients phone number
+            </summary>
+        </member>
+    </members>
+</doc>

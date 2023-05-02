@@ -1,0 +1,29 @@
+Endpoints that take/return a collection of deliveries also possible eg. 
+bulk create, update, get list operations
+ 
+- Can use a DbConnectionFactory to support databases of multiple Providers, and pass not only connection string but dataProvider name as argument.
+
+- Data Repository / Unit of Work pattern is for EFCore is not encouraged, so avoided using this.
+
+- to run update: dotnet ef migrations add "AddDeliveryTable" -s ..\Web\TT.Deliveries.Web.Api\TT.Deliveries.Web.Api.csproj
+
+In dev mode, database is migrated at startup, this will also create the db if non-existent
+
+- shoudl we validate the order number on POST operations? - should multiple deliveries of the same order be possible? Maybe, if e.g. order has to be redelivered?
+
+- can add a Get endpoint to return list of deliveries, which can be queried by state, order number user etc. or use a Json Query language e.g. JMESPath
+
+- separate api state controller can be created
+
+- to avoid localization/globalization/culture/region issue, we assume all times are in UTC. 
+Alternatives are using TimeZoneInfo to convert times between regions
+
+- logging logs to console only, can be modified to log to file or other sinks
+
+-  also possible for State Expiration job to expire delivery states via Delivery API rather than direct db access
+
+- Using JWT bearer token authentication is probably the right way to go, but basic authentication demonstrates the concept due to time constraints
+
+- Integration tests should be written if time allows
+
+- Api documentation can be automatically generated from OpenAPI specification and XML comments

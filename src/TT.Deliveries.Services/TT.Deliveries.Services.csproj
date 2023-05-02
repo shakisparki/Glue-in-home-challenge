@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\TT.Deliveries.Data.Dto\TT.Deliveries.Data.Dto.csproj" />
+    <ProjectReference Include="..\TT.Deliveries.Data\TT.Deliveries.Data.csproj" />
+  </ItemGroup>
+
+</Project>
