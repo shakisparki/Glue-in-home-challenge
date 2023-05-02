@@ -79,10 +79,8 @@ Click Run.
 
 * Data Repository / Unit of Work pattern for EFCore is not encouraged, so avoided using this.
 
-* to run update: dotnet ef migrations add "AddDeliveryTable" -s ..\Web\TT.Deliveries.Web.Api\TT.Deliveries.Web.Api.csproj
 
-
-* should we validate the order number on POST operations? - should multiple deliveries of the same order be possible?  Maybe, if e.g. order has to be redelivered?
+* should we validate the order number on POST operations? - should multiple deliveries of the same order be possible?  My Answer: Yes, if e.g. order has to be redelivered
 
 * can add support for a Json Query language e.g. JMESPath
 
